@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: api_gateway
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: CONFIG_SERVER
+#      profile: dev
+  rabbitmq:
+    host: 122.152.216.232
+    port: 5672
+    username: check321
+    password: rabbitmq3721
+eureka:
+  client:
+    service-url:
+      defaultZone: http://node01:8701/eureka/
+zuul:
+  routes:
+#    v1:
+#      path: /foo/v1/**
+#      serviceId: foo_service
+    foo_service: /foo/v1/**
+  ignored-patterns:
+    - /foo/v1/
